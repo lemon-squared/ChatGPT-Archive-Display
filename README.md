@@ -1,46 +1,43 @@
 # ChatGPT Archive Display
 
-Browser-based viewer for ChatGPT data exports. Drop a `.zip` export or `conversations.json` to browse conversations with full message recovery — including branched / regenerated turns that the ChatGPT client may not show on the current path.
+Browser-based viewer for ChatGPT data exports, built on **[Atlas](https://github.com/lemon-squared/Atlas)** (HTML-first) with **Tailwind** via `@atlas/tailwind`.
 
-**Everything is parsed locally in your browser. Nothing is uploaded.**
+Drop a `.zip` export or `conversations.json` to browse conversations — including branched / regenerated turns the ChatGPT client may hide.
+
+**Parsing stays in your browser. Nothing is uploaded.**
 
 ## Features
 
 - Drag and drop ChatGPT export ZIP or `conversations.json`
-- Reconstructs the current conversation path from `mapping` + `current_node`
-- **All nodes** and **Off-path only** views to surface “missing” messages from alternate branches
+- Reconstructs the current path from `mapping` + `current_node`
+- **All nodes** / **Off-path only** for “missing” branch messages
 - Search across titles and message text
-- Markdown rendering for assistant/user turns
-- Tool / image-reference parts preserved
+- Atlas island (`<chat-archive>`) for client interactivity
 
-## Quick start
+## Requirements
+
+- [Bun](https://bun.sh) ≥ 1.1
+- Access to the private `lemon-squared/Atlas` repo until `@atlas/*` is published to npm
 
 ```bash
-bun install
-bun dev
+export ATLAS_GITHUB_TOKEN=...   # fine-grained PAT with Contents: Read on Atlas
+bun install                     # clones Atlas into vendor/Atlas when missing
+bun run dev                     # http://localhost:3000
 ```
-
-Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 bun test
 bun run build
 ```
 
-## Export tips
-
-In ChatGPT: **Settings → Data controls → Export data**. Unpack or upload the ZIP that contains `conversations.json`.
+Sample fixture: [`public/sample-conversations.json`](./public/sample-conversations.json).
 
 ## Stack
 
-- Bun (package manager, scripts, and tests)
-- Next.js (App Router) + React
-- Tailwind CSS v4
-- JSZip (client-side ZIP reading)
-- react-markdown + remark-gfm
-
-> Note: Integration with the private **Atlas** framework is pending repository access for this Cloud Agent.
+- Atlas (compiler, runtime, islands, `@atlas/tailwind`)
+- Bun
+- JSZip (loaded in the island via esm.sh)
 
 ## Privacy
 
-Files never leave your machine for parsing. Refreshing the page clears the in-memory archive.
+Files never leave your machine for parsing. Refreshing clears the in-memory archive.
