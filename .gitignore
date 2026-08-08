@@ -5,6 +5,9 @@
 # atlas build output
 /.atlas
 
+# generated island bundles (see scripts/build-islands.ts)
+/elements/*.js
+
 # testing
 /coverage
 

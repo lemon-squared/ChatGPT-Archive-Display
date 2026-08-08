@@ -2,13 +2,14 @@
  * <chat-archive> — ChatGPT export viewer island (client-only).
  * Parses ZIP / conversations.json in-browser and surfaces off-path messages.
  *
- * Served as a raw module by Atlas; keep syntax browser-safe (no type annotations).
+ * Source lives here; `bun run islands` bundles it (with JSZip) into elements/ for Atlas.
  */
 
-import JSZip from "https://esm.sh/jszip@3.10.1"
+import JSZip from "jszip"
 
-const SAMPLE_FIXTURE = String.raw`[{"title":"Branch demo — missing reply","create_time":1700000000,"update_time":1700001000,"conversation_id":"sample-conv-1","default_model_slug":"gpt-4o","current_node":"a2","mapping":{"root":{"id":"root","parent":null,"children":["u1"],"message":{"id":"root","author":{"role":"system"},"content":{"content_type":"text","parts":[""]}}},"u1":{"id":"u1","parent":"root","children":["a1","a2"],"message":{"id":"u1","author":{"role":"user"},"create_time":1700000001,"content":{"content_type":"text","parts":["What is the capital of France?"]}}},"a1":{"id":"a1","parent":"u1","children":[],"message":{"id":"a1","author":{"role":"assistant"},"create_time":1700000002,"content":{"content_type":"text","parts":["Paris — this regenerated branch is **off the current path** and often looks “missing” in the ChatGPT sidebar thread."]},"metadata":{"model_slug":"gpt-4o"}}},"a2":{"id":"a2","parent":"u1","children":[],"message":{"id":"a2","author":{"role":"assistant"},"create_time":1700000003,"content":{"content_type":"text","parts":["The capital of France is **Paris**.\n\n```js\nconsole.log('bonjour');\n```"]},"metadata":{"model_slug":"gpt-4o"}}}}}]`
+import sampleFixture from "../public/sample-conversations.json"
 
+const SAMPLE_FIXTURE = JSON.stringify(sampleFixture)
 const STYLE = `
 :host { display: block; min-height: 100dvh; color: #1c241f; font-family: "Public Sans", "Segoe UI", sans-serif; }
 * { box-sizing: border-box; }

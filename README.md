@@ -27,6 +27,7 @@ bun run dev                     # http://localhost:3000
 
 ```bash
 bun test
+bun run islands   # bundle <chat-archive> + jszip into elements/
 bun run build
 ```
 
@@ -36,7 +37,7 @@ Sample fixture: [`public/sample-conversations.json`](./public/sample-conversatio
 
 - Atlas (compiler, runtime, islands, `@atlas/tailwind`)
 - Bun
-- JSZip (loaded in the island via esm.sh)
+- JSZip (npm dependency, bundled into the island at build time — no CDN)
 
 ## Privacy
 
