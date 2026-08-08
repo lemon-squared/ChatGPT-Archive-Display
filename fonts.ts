@@ -5,6 +5,7 @@ export const sans = google({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font",
+  display: "swap",
 })
 
 export const display = google({
@@ -13,6 +14,7 @@ export const display = google({
   weight: ["500", "700"],
   axes: { opsz: "9..144" },
   variable: "--font-display",
+  display: "swap",
 })
 
 export const mono = google({
@@ -20,4 +22,6 @@ export const mono = google({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
 })

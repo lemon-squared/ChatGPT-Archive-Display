@@ -20,8 +20,10 @@ Drop a `.zip` export or `conversations.json` to browse conversations — includi
 - Access to the private `lemon-squared/Atlas` repo until `@atlas/*` is published to npm
 
 ```bash
-export ATLAS_GITHUB_TOKEN=...   # fine-grained PAT with Contents: Read on Atlas
-bun install                     # clones Atlas into vendor/Atlas when missing
+cp .env.example .env
+# set ATLAS_GITHUB_TOKEN=...  (fine-grained PAT, Contents: Read on Atlas)
+
+bun install                     # clones/updates vendor/Atlas when needed
 bun run dev                     # http://localhost:3000
 ```
 
