@@ -11,11 +11,11 @@ import sampleFixture from "../public/sample-conversations.json"
 
 const SAMPLE_FIXTURE = JSON.stringify(sampleFixture)
 const STYLE = `
-:host { display: block; min-height: 100dvh; color: #1c241f; font-family: var(--font), "Segoe UI", sans-serif; }
+:host { display: block; min-height: calc(100dvh - 8rem); color: #1c241f; font-family: var(--font), "Segoe UI", sans-serif; }
 * { box-sizing: border-box; }
 .font-display { font-family: var(--font-display), "Times New Roman", serif; font-optical-sizing: auto; }
-.shell { min-height: 100dvh; background: #f3eee4; }
-.landing { position: relative; overflow: hidden; min-height: 100dvh; display: flex; align-items: center; }
+.shell { min-height: calc(100dvh - 8rem); background: #f3eee4; }
+.landing { position: relative; overflow: hidden; min-height: calc(100dvh - 8rem); display: flex; align-items: center; }
 .atmosphere {
   position: absolute; inset: 0; pointer-events: none;
   background:
@@ -406,10 +406,10 @@ class ChatArchive extends HTMLElement {
         <div class="blob-a" aria-hidden="true"></div>
         <div class="blob-b" aria-hidden="true"></div>
         <div class="wrap">
-          <h1 class="font-display brand">Chat Archive</h1>
+          <h1 class="font-display brand">Viewer</h1>
           <p class="lede">
-            Drop your ChatGPT export ZIP or <code>conversations.json</code> to recover every turn —
-            including branched and “missing” messages the client may hide.
+            Drop your ChatGPT export ZIP or <code>conversations.json</code>. Parsing stays in this
+            tab — Atlas bundled this island (and JSZip) for the browser.
           </p>
           <label class="drop${state.loading ? " active" : ""}" data-drop>
             <strong>${state.loading ? "Reading export…" : "Drop export here"}</strong>
@@ -418,7 +418,7 @@ class ChatArchive extends HTMLElement {
           </label>
           ${sampleUrl ? `<p class="hint"><button type="button" data-sample class="file-btn">Load sample conversation</button></p>` : ""}
           ${state.error ? `<p class="error" role="alert">${escapeHtml(state.error)}</p>` : ""}
-          <p class="hint">Everything stays in your browser. Nothing is uploaded. Built with Atlas.</p>
+          <p class="hint">Nothing is uploaded. Refreshing clears the in-memory archive.</p>
         </div>
       </div>
     `

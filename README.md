@@ -6,13 +6,25 @@ Drop a `.zip` export or `conversations.json` to browse conversations — includi
 
 **Parsing stays in your browser. Nothing is uploaded.**
 
+## Pages (Atlas file routing)
+
+| Route | Role | Client JS |
+| --- | --- | --- |
+| `/` | Marketing home (SSR) | `x-atlas-js: 0` |
+| `/viewer` | `<chat-archive>` island + JSZip | island bundle |
+| `/about` | Privacy + stack | `0` |
+| `/guide` | Guide index | `0` |
+| `/guide/[slug]` | Loader + `notFound()` | `0` |
+
+Routes compile from `app/**/page.tsx` into `.atlas/` manifests. Navigation uses `@atlas/ui` `Link` (full document loads — no SPA router).
+
 ## Features
 
 - Drag and drop ChatGPT export ZIP or `conversations.json`
 - Reconstructs the current path from `mapping` + `current_node`
 - **All nodes** / **Off-path only** for “missing” branch messages
 - Search across titles and message text
-- Atlas island (`<chat-archive>`) for client interactivity
+- Atlas island only where interaction lives (`/viewer`)
 
 ## Requirements
 
