@@ -13,5 +13,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["app/**/*", "islands/**/*", "lib/**/*", "fonts.ts", "atlas.config.ts", "scripts/**/*"]
+  "include": ["app/**/*", "elements/**/*", "lib/**/*", "fonts.ts", "atlas.config.ts", "scripts/**/*"]
 }

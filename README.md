@@ -29,7 +29,6 @@ bun run dev                     # http://localhost:3000
 
 ```bash
 bun test
-bun run islands   # bundle <chat-archive> + jszip into elements/
 bun run build
 ```
 
@@ -39,7 +38,7 @@ Sample fixture: [`public/sample-conversations.json`](./public/sample-conversatio
 
 - Atlas (compiler, runtime, islands, `@atlas/tailwind`, `@atlas/font`)
 - Bun
-- JSZip (npm dependency, bundled into the island at build time — no CDN)
+- JSZip (`import JSZip from "jszip"` in `elements/chat-archive.ts` — Atlas bundles it into `.atlas/client/` at build time)
 
 Fonts (Public Sans, Fraunces, IBM Plex Mono) are downloaded at `atlas build` into `.atlas/assets/fonts/` and served locally — no `fonts.googleapis.com` / `fonts.gstatic.com` requests.
 

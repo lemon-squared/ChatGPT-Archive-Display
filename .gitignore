@@ -2,11 +2,8 @@
 /node_modules
 /vendor
 
-# atlas build output
+# atlas build output (includes .atlas/client island bundles)
 /.atlas
-
-# generated island bundles (see scripts/build-islands.ts)
-/elements/*.js
 
 # testing
 /coverage
