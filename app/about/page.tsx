@@ -2,6 +2,7 @@
 import type { PageMetadata } from "@atlas/metadata"
 import type { AtlasContext } from "@atlas/runtime"
 import { Link } from "@atlas/ui"
+import { ProsePage } from "../../components/ProsePage.tsx"
 
 export function generateMetadata(_ctx: AtlasContext): PageMetadata {
   return {
@@ -13,12 +14,10 @@ export function generateMetadata(_ctx: AtlasContext): PageMetadata {
 
 export default function AboutPage(_ctx: AtlasContext) {
   return (
-    <article class="prose-page">
-      <h1 class="font-display">About Chat Archive</h1>
-      <p class="lede">
-        A browser-only viewer for ChatGPT data exports, shaped as a small multi-page Atlas app.
-      </p>
-
+    <ProsePage
+      title="About Chat Archive"
+      lede="A browser-only viewer for ChatGPT data exports, shaped as a small multi-page Atlas app."
+    >
       <h2 class="font-display">Privacy</h2>
       <p>
         Archives are read entirely in your browser. There is no upload API and no server-side parse
@@ -48,6 +47,6 @@ export default function AboutPage(_ctx: AtlasContext) {
           Open the viewer
         </Link>
       </p>
-    </article>
+    </ProsePage>
   )
 }

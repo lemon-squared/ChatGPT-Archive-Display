@@ -35,8 +35,10 @@ Routes compile from `app/**/page.tsx` into `.atlas/` manifests. Navigation uses 
 cp .env.example .env
 # set ATLAS_GITHUB_TOKEN=...  (fine-grained PAT, Contents: Read on Atlas)
 
-bun install                     # clones/updates vendor/Atlas when needed
-bun run dev                     # http://localhost:3000
+bun install                     # clones/updates vendor/Atlas + its deps when needed
+bun run dev                     # atlas dev: watch app/ + components/ → http://localhost:3000
+bun run mcp                     # Atlas Application Graph MCP (stdio)
+                                # Cursor: project `.cursor/mcp.json` + `scripts/atlas-mcp.ts` (create-app scaffold; never `bun run` / never `~/.cursor/mcp.json`)
 ```
 
 ```bash
@@ -45,6 +47,10 @@ bun run build
 ```
 
 Sample fixture: [`public/sample-conversations.json`](./public/sample-conversations.json).
+
+## Request logs
+
+Atlas pretty-prints access lines on stdout (`GET / 200 in 5ms  route=/  cache=MISS  islands=1`). `js` in JSON = island `<script>` count, not bytes. `ATLAS_LOG_PRETTY=0` keeps JSON; `ATLAS_LOG=0` disables logs.
 
 ## Stack
 

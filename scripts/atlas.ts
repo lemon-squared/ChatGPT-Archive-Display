@@ -19,7 +19,7 @@ const args = process.argv.slice(2).flatMap((arg, index, all) => {
   return [arg]
 })
 
-const proc = Bun.spawn(["bun", "run", atlasCli, ...args], {
+const proc = Bun.spawn(["bun", atlasCli, ...args], {
   cwd: atlasRoot,
   stdout: "inherit",
   stderr: "inherit",

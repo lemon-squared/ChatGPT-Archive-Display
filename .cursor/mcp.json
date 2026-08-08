@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "atlas": {
+      "command": "bun",
+      "args": ["scripts/atlas-mcp.ts"]
+    }
+  }
+}

@@ -1,6 +1,7 @@
 /** @jsxImportSource @atlas/renderer */
 import type { AtlasContext } from "@atlas/runtime"
 import { Link } from "@atlas/ui"
+import { ProsePage } from "../components/ProsePage.tsx"
 
 export default function NotFoundPage(ctx: AtlasContext) {
   const message =
@@ -12,14 +13,12 @@ export default function NotFoundPage(ctx: AtlasContext) {
       : "That page is not in this archive."
 
   return (
-    <section class="prose-page">
-      <h1 class="font-display">404</h1>
-      <p class="lede">{message}</p>
+    <ProsePage as="section" title="404" lede={message}>
       <p>
         <Link href="/" class="btn btn-primary">
           Back home
         </Link>
       </p>
-    </section>
+    </ProsePage>
   )
 }
