@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Branch demo — missing reply",
+    "create_time": 1700000000,
+    "update_time": 1700001000,
+    "conversation_id": "sample-conv-1",
+    "default_model_slug": "gpt-4o",
+    "current_node": "a2",
+    "mapping": {
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": ["u1"],
+        "message": {
+          "id": "root",
+          "author": { "role": "system" },
+          "content": { "content_type": "text", "parts": [""] }
+        }
+      },
+      "u1": {
+        "id": "u1",
+        "parent": "root",
+        "children": ["a1", "a2"],
+        "message": {
+          "id": "u1",
+          "author": { "role": "user" },
+          "create_time": 1700000001,
+          "content": {
+            "content_type": "text",
+            "parts": ["What is the capital of France?"]
+          }
+        }
+      },
+      "a1": {
+        "id": "a1",
+        "parent": "u1",
+        "children": [],
+        "message": {
+          "id": "a1",
+          "author": { "role": "assistant" },
+          "create_time": 1700000002,
+          "content": {
+            "content_type": "text",
+            "parts": [
+              "Paris — this regenerated branch is **off the current path** and often looks “missing” in the ChatGPT sidebar thread."
+            ]
+          },
+          "metadata": { "model_slug": "gpt-4o" }
+        }
+      },
+      "a2": {
+        "id": "a2",
+        "parent": "u1",
+        "children": [],
+        "message": {
+          "id": "a2",
+          "author": { "role": "assistant" },
+          "create_time": 1700000003,
+          "content": {
+            "content_type": "text",
+            "parts": [
+              "The capital of France is **Paris**.\n\n```js\nconsole.log('bonjour');\n```"
+            ]
+          },
+          "metadata": { "model_slug": "gpt-4o" }
+        }
+      }
+    }
+  }
+]
