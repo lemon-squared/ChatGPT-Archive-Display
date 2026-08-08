@@ -1,0 +1,7 @@
+{
+  "name": "ChatGPT Archive Display",
+  "install": "bun install",
+  "repositoryDependencies": [
+    "github.com/lemon-squared/Atlas"
+  ]
+}
