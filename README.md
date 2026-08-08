@@ -16,15 +16,15 @@ Browser-based viewer for ChatGPT data exports. Drop a `.zip` export or `conversa
 ## Quick start
 
 ```bash
-pnpm install
-pnpm dev
+bun install
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
-pnpm test
-pnpm build
+bun test
+bun run build
 ```
 
 ## Export tips
@@ -33,6 +33,7 @@ In ChatGPT: **Settings → Data controls → Export data**. Unpack or upload the
 
 ## Stack
 
+- Bun (package manager, scripts, and tests)
 - Next.js (App Router) + React
 - Tailwind CSS v4
 - JSZip (client-side ZIP reading)
