@@ -69,3 +69,440 @@ body {
   font-family: var(--font-display), "Times New Roman", serif;
   font-optical-sizing: auto;
 }
+
+.site {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(243, 238, 228, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.site-brand {
+  margin: 0;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  align-items: center;
+}
+
+.site-nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover {
+  color: var(--accent-strong);
+}
+
+.site-footer {
+  margin-top: auto;
+  padding: 1.25rem 1.5rem 1.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--accent-strong);
+}
+
+#main {
+  flex: 1;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100dvh - 4.5rem);
+  display: flex;
+  align-items: center;
+}
+
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(105deg, rgba(243, 238, 228, 0.97) 0%, rgba(243, 238, 228, 0.88) 42%, rgba(232, 239, 234, 0.55) 100%),
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(45, 122, 110, 0.16), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(196, 140, 74, 0.14), transparent 50%),
+    repeating-linear-gradient(-12deg, rgba(28, 36, 31, 0.025) 0 1px, transparent 1px 14px);
+}
+
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 0 2rem 30%;
+  opacity: 0.92;
+}
+
+.hero-visual .branch-tree {
+  width: min(52rem, 100%);
+  height: auto;
+  transform: translateX(4%);
+  animation: hero-drift 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (max-width: 859px) {
+  .hero-visual {
+    padding: 0;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0.28;
+  }
+
+  .hero-visual .branch-tree {
+    width: 120%;
+    max-width: none;
+    transform: translateY(18%);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    opacity: 0;
+    transform: translateX(8%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(4%);
+  }
+}
+
+.hero-copy {
+  position: relative;
+  width: min(40rem, 100%);
+  margin: 0;
+  padding: 4rem 1.5rem 4.5rem;
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-cta .btn {
+  animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-cta .btn:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+@media (min-width: 860px) {
+  .hero-copy {
+    padding-left: clamp(1.5rem, 6vw, 4rem);
+  }
+}
+
+.hero-brand {
+  font-size: clamp(2.85rem, 8vw, 4.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+.hero-title {
+  margin: 1rem 0 0;
+  max-width: 16ch;
+  font-size: clamp(1.45rem, 2.8vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink-muted);
+}
+
+.hero-lede {
+  margin: 1.1rem 0 0;
+  max-width: 32rem;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.hero-lede code,
+.band-lede code,
+.prose-page code,
+.atlas-points code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.92em;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.branch-tree {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.branch-tree .node-label {
+  font-family: var(--font), "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+
+.branch-tree .node-label.accent {
+  fill: var(--accent-strong);
+}
+
+.branch-tree .node-sub {
+  font-family: var(--font), "Segoe UI", sans-serif;
+  font-size: 12px;
+  fill: var(--ink-faint);
+}
+
+.branch-tree .node-sub.accent {
+  fill: var(--accent-strong);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 0.65rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.98rem;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-ghost {
+  background: rgba(250, 247, 240, 0.85);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+}
+
+.band {
+  width: min(72rem, 100%);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.band h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+}
+
+.band-lede {
+  margin: 0.85rem 0 0;
+  max-width: 40rem;
+  color: var(--ink-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.steps {
+  list-style: none;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 800px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+}
+
+.step-index {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--accent-strong);
+  padding-top: 0.2rem;
+}
+
+.steps h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.steps p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.band-atlas {
+  border-top: 1px solid var(--line);
+}
+
+.atlas-points {
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 46rem;
+}
+
+.atlas-points li {
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.atlas-points strong {
+  color: var(--ink);
+}
+
+.atlas-points a {
+  color: var(--accent-strong);
+}
+
+.prose-page {
+  width: min(46rem, 100%);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.prose-page h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -0.03em;
+}
+
+.prose-page h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-page .lede {
+  margin: 1rem 0 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.prose-page p,
+.prose-page li {
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+.prose-page ul {
+  padding-left: 1.2rem;
+}
+
+.prose-page a {
+  color: var(--accent-strong);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.guide-list {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.guide-list li {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-list a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.guide-list a:hover {
+  color: var(--accent-strong);
+}
+
+.guide-list p {
+  margin: 0.4rem 0 0;
+}
+
+.guide-next {
+  margin-top: 2.5rem;
+}
+
+.viewer-frame {
+  min-height: calc(100dvh - 8rem);
+}
+
+.viewer-frame chat-archive {
+  display: block;
+  min-height: calc(100dvh - 8rem);
+}
