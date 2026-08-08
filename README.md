@@ -1,6 +1,6 @@
 # ChatGPT Archive Display
 
-Browser-based viewer for ChatGPT data exports, built on **[Atlas](https://github.com/lemon-squared/Atlas)** (HTML-first) with **Tailwind** via `@atlas/tailwind`.
+Browser-based viewer for ChatGPT data exports, built on **[Atlas](https://github.com/lemon-squared/Atlas)** (HTML-first) with **Tailwind** via `@atlas/tailwind` and **self-hosted fonts** via `@atlas/font`.
 
 Drop a `.zip` export or `conversations.json` to browse conversations — including branched / regenerated turns the ChatGPT client may hide.
 
@@ -20,8 +20,10 @@ Drop a `.zip` export or `conversations.json` to browse conversations — includi
 - Access to the private `lemon-squared/Atlas` repo until `@atlas/*` is published to npm
 
 ```bash
-export ATLAS_GITHUB_TOKEN=...   # fine-grained PAT with Contents: Read on Atlas
-bun install                     # clones Atlas into vendor/Atlas when missing
+cp .env.example .env
+# set ATLAS_GITHUB_TOKEN=...  (fine-grained PAT, Contents: Read on Atlas)
+
+bun install                     # clones/updates vendor/Atlas when needed
 bun run dev                     # http://localhost:3000
 ```
 
@@ -35,9 +37,11 @@ Sample fixture: [`public/sample-conversations.json`](./public/sample-conversatio
 
 ## Stack
 
-- Atlas (compiler, runtime, islands, `@atlas/tailwind`)
+- Atlas (compiler, runtime, islands, `@atlas/tailwind`, `@atlas/font`)
 - Bun
 - JSZip (npm dependency, bundled into the island at build time — no CDN)
+
+Fonts (Public Sans, Fraunces, IBM Plex Mono) are downloaded at `atlas build` into `.atlas/assets/fonts/` and served locally — no `fonts.googleapis.com` / `fonts.gstatic.com` requests.
 
 ## Privacy
 
