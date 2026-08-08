@@ -50,7 +50,7 @@ Sample fixture: [`public/sample-conversations.json`](./public/sample-conversatio
 
 - Atlas (compiler, runtime, islands, `@atlas/tailwind`, `@atlas/font`)
 - Bun
-- JSZip (`import JSZip from "jszip"` in `elements/chat-archive.ts` — Atlas bundles it into `.atlas/client/` at build time)
+- JSZip (`import "jszip"` from the `<chat-archive>` island entry — Atlas records + bundles it into `.atlas/client/`). Parse, render, and shadow styles live in `lib/chatgpt/` (not `elements/`, so they are not extra islands).
 
 Fonts (Public Sans, Fraunces, IBM Plex Mono) are downloaded at `atlas build` into `.atlas/assets/fonts/` and served locally — no `fonts.googleapis.com` / `fonts.gstatic.com` requests.
 
