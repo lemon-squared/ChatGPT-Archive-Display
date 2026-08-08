@@ -1,6 +1,6 @@
 # ChatGPT Archive Display
 
-Browser-based viewer for ChatGPT data exports, built on **[Atlas](https://github.com/lemon-squared/Atlas)** (HTML-first) with **Tailwind** via `@atlas/tailwind`.
+Browser-based viewer for ChatGPT data exports, built on **[Atlas](https://github.com/lemon-squared/Atlas)** (HTML-first) with **Tailwind** via `@atlas/tailwind` and **self-hosted fonts** via `@atlas/font`.
 
 Drop a `.zip` export or `conversations.json` to browse conversations — including branched / regenerated turns the ChatGPT client may hide.
 
@@ -35,9 +35,11 @@ Sample fixture: [`public/sample-conversations.json`](./public/sample-conversatio
 
 ## Stack
 
-- Atlas (compiler, runtime, islands, `@atlas/tailwind`)
+- Atlas (compiler, runtime, islands, `@atlas/tailwind`, `@atlas/font`)
 - Bun
 - JSZip (npm dependency, bundled into the island at build time — no CDN)
+
+Fonts (Public Sans, Fraunces, IBM Plex Mono) are downloaded at `atlas build` into `.atlas/assets/fonts/` and served locally — no `fonts.googleapis.com` / `fonts.gstatic.com` requests.
 
 ## Privacy
 

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Fraunces", "Times New Roman", serif;
-  --font-sans: "Public Sans", "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-family-display: var(--font-display), "Times New Roman", serif;
+  --font-family-sans: var(--font), "Segoe UI", sans-serif;
+  --font-family-mono: var(--font-mono), ui-monospace, monospace;
 }
 
 :root {
@@ -39,7 +39,7 @@ html {
 body {
   margin: 0;
   min-height: 100dvh;
-  font-family: var(--font-sans);
+  font-family: var(--font), "Segoe UI", sans-serif;
   background: var(--canvas);
   color: var(--ink);
   text-rendering: optimizeLegibility;
@@ -66,6 +66,6 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display);
+  font-family: var(--font-display), "Times New Roman", serif;
   font-optical-sizing: auto;
 }

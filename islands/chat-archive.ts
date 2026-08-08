@@ -11,9 +11,9 @@ import sampleFixture from "../public/sample-conversations.json"
 
 const SAMPLE_FIXTURE = JSON.stringify(sampleFixture)
 const STYLE = `
-:host { display: block; min-height: 100dvh; color: #1c241f; font-family: "Public Sans", "Segoe UI", sans-serif; }
+:host { display: block; min-height: 100dvh; color: #1c241f; font-family: var(--font), "Segoe UI", sans-serif; }
 * { box-sizing: border-box; }
-.font-display { font-family: "Fraunces", "Times New Roman", serif; font-optical-sizing: auto; }
+.font-display { font-family: var(--font-display), "Times New Roman", serif; font-optical-sizing: auto; }
 .shell { min-height: 100dvh; background: #f3eee4; }
 .landing { position: relative; overflow: hidden; min-height: 100dvh; display: flex; align-items: center; }
 .atmosphere {
@@ -30,7 +30,7 @@ const STYLE = `
 .wrap { position: relative; width: min(64rem, 100%); margin: 0 auto; padding: 4rem 1.5rem; }
 h1.brand { margin: 0; font-size: clamp(2.75rem, 8vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; }
 .lede { margin: 1.25rem 0 0; max-width: 36rem; font-size: 1.15rem; line-height: 1.6; color: #4d5a53; }
-.lede code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .95em; }
+.lede code { font-family: var(--font-mono), ui-monospace, monospace; font-size: .95em; }
 .drop {
   margin-top: 2.5rem; max-width: 42rem; display: flex; flex-direction: column; gap: .75rem;
   min-height: 12rem; padding: 2rem 1.5rem; border: 1px solid #b9ae97; border-radius: 0.75rem;
@@ -39,7 +39,7 @@ h1.brand { margin: 0; font-size: clamp(2.75rem, 8vw, 4.5rem); letter-spacing: -0
 }
 .drop:hover, .drop.active { border-color: #2d7a6e; transform: translateY(-2px); }
 .drop.active { background: rgba(45,122,110,.14); }
-.drop strong { font-family: "Fraunces", serif; font-size: 1.5rem; }
+.drop strong { font-family: var(--font-display), "Times New Roman", serif; font-size: 1.5rem; }
 .drop span { color: #4d5a53; }
 .hint { margin-top: 2rem; color: #7a877f; font-size: .9rem; }
 .error { margin-top: 1rem; max-width: 42rem; padding: .75rem 1rem; border-radius: .5rem; border: 1px solid #e2b4ae; background: #f8e8e6; color: #8b2e2e; font-size: .9rem; }
@@ -48,7 +48,7 @@ h1.brand { margin: 0; font-size: clamp(2.75rem, 8vw, 4.5rem); letter-spacing: -0
   background: rgba(243,238,228,.9); backdrop-filter: blur(10px);
   display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: center; padding: .75rem 1.25rem;
 }
-.chrome .brand-btn { background: none; border: 0; cursor: pointer; font-family: "Fraunces", serif; font-size: 1.25rem; color: #1c241f; }
+.chrome .brand-btn { background: none; border: 0; cursor: pointer; font-family: var(--font-display), "Times New Roman", serif; font-size: 1.25rem; color: #1c241f; }
 .chrome .meta { color: #7a877f; font-size: .85rem; }
 .chrome input[type="search"] {
   flex: 1; min-width: 12rem; border: 1px solid #d5cdbc; border-radius: .5rem; padding: .5rem .75rem;
@@ -80,7 +80,7 @@ h1.brand { margin: 0; font-size: clamp(2.75rem, 8vw, 4.5rem); letter-spacing: -0
 .conv .sub { margin-top: .4rem; font-size: .75rem; color: #7a877f; display: flex; flex-wrap: wrap; gap: .35rem .5rem; }
 .conv .off { color: #1f5f56; }
 .thread-h { padding: 1.25rem 1.5rem; border-bottom: 1px solid #d5cdbc; }
-.thread-h h2 { margin: 0; font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.15; }
+.thread-h h2 { margin: 0; font-family: var(--font-display), "Times New Roman", serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.15; }
 .thread-h .meta { margin-top: .75rem; display: flex; flex-wrap: wrap; gap: .35rem .75rem; color: #4d5a53; font-size: .9rem; }
 .thread-h .off { color: #1f5f56; }
 .msgs { padding: 1.25rem 1rem 2rem; display: flex; flex-direction: column; gap: 1.1rem; }
@@ -103,9 +103,9 @@ h1.brand { margin: 0; font-size: clamp(2.75rem, 8vw, 4.5rem); letter-spacing: -0
 .body p:last-child { margin-bottom: 0; }
 .body pre, .code {
   overflow-x: auto; border-radius: .6rem; background: #24302b; color: #e8f0ec;
-  padding: .85rem 1rem; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .88rem;
+  padding: .85rem 1rem; font-family: var(--font-mono), ui-monospace, monospace; font-size: .88rem;
 }
-.body code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .9em; background: rgba(28,36,31,.06); border-radius: .3rem; padding: .1rem .35rem; }
+.body code { font-family: var(--font-mono), ui-monospace, monospace; font-size: .9em; background: rgba(28,36,31,.06); border-radius: .3rem; padding: .1rem .35rem; }
 .body pre code { background: none; padding: 0; }
 .body ul, .body ol { padding-left: 1.25rem; }
 .body a { color: #1f5f56; }
