@@ -2,7 +2,7 @@
  * <chat-archive> — ChatGPT export viewer island (client-only).
  * Parses ZIP / conversations.json in-browser and surfaces off-path messages.
  *
- * Source lives here; `bun run islands` bundles it (with JSZip) into elements/ for Atlas.
+ * Atlas bundles this entry (and npm deps like jszip) into `.atlas/client/` at build time.
  */
 
 import JSZip from "jszip"
