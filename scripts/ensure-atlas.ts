@@ -25,12 +25,23 @@ async function linkAtlasPackages() {
 }
 
 async function bunInstallAtlas() {
-  const install = Bun.spawn(["bun", "install"], {
+  // Hoisted: `atlas start` runs `packages/cli/bin/atlas.ts`, which statically
+  // imports `@atlas/mcp` → `@modelcontextprotocol/server/stdio`. Isolated
+  // installs leave that in `node_modules/.bun` without a resolvable symlink.
+  const install = Bun.spawn(["bun", "install", "--linker", "hoisted"], {
     cwd: vendorRoot,
     stdout: "inherit",
     stderr: "inherit",
   })
   if ((await install.exited) !== 0) process.exit(1)
+}
+
+/** CLI imports `@atlas/mcp` even for `start`; an interrupted vendor install leaves these missing. */
+function atlasVendorDepsMissing(): boolean {
+  return (
+    !existsSync(join(vendorRoot, "node_modules", "zod")) ||
+    !existsSync(join(vendorRoot, "node_modules", "@modelcontextprotocol", "server"))
+  )
 }
 
 async function cloneAtlas(token: string) {
@@ -109,6 +120,12 @@ if (!existsSync(vendorPkg)) {
   await updateAtlas(token)
 } else {
   console.log("Atlas vendor present (including @atlas/font).")
+}
+
+if (atlasVendorDepsMissing()) {
+  console.log("Atlas vendor dependencies incomplete — installing…")
+  rmSync(join(vendorRoot, "node_modules"), { recursive: true, force: true })
+  await bunInstallAtlas()
 }
 
 await linkAtlasPackages()

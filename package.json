@@ -7,9 +7,11 @@
     "postinstall": "bun run scripts/ensure-atlas.ts",
     "ensure-atlas": "bun run scripts/ensure-atlas.ts",
     "atlas": "bun run scripts/atlas.ts",
-    "dev": "bun run atlas -- start --dir . --build --port 3000",
+    "dev": "bun run atlas -- dev --dir . --port 3000",
     "build": "bun run atlas -- build --dir .",
     "start": "bun run atlas -- start --dir . --port 3000",
+    "mcp": "bun run atlas -- mcp --dir .",
+    "mcp:smoke": "bun run scripts/atlas-mcp-smoke.ts",
     "test": "bun test lib",
     "test:watch": "bun test --watch lib"
   },

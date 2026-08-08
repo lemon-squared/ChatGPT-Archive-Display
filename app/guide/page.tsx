@@ -1,7 +1,8 @@
 /** @jsxImportSource @atlas/renderer */
 import type { PageMetadata } from "@atlas/metadata"
 import type { AtlasContext } from "@atlas/runtime"
-import { Link } from "@atlas/ui"
+import { GuideList } from "../../components/GuideList.tsx"
+import { ProsePage } from "../../components/ProsePage.tsx"
 import { listGuides } from "../../data/guides.ts"
 
 export function generateMetadata(_ctx: AtlasContext): PageMetadata {
@@ -12,21 +13,13 @@ export function generateMetadata(_ctx: AtlasContext): PageMetadata {
 }
 
 export default function GuideIndexPage(_ctx: AtlasContext) {
-  const guides = listGuides()
   return (
-    <section class="prose-page">
-      <h1 class="font-display">Guides</h1>
-      <p class="lede">
-        Read these as plain HTML — loaded on the server, no client bundle required.
-      </p>
-      <ol class="guide-list">
-        {guides.map((guide) => (
-          <li>
-            <Link href={`/guide/${guide.slug}`}>{guide.title}</Link>
-            <p>{guide.summary}</p>
-          </li>
-        ))}
-      </ol>
-    </section>
+    <ProsePage
+      as="section"
+      title="Guides"
+      lede="Read these as plain HTML — loaded on the server, no client bundle required."
+    >
+      <GuideList guides={listGuides()} />
+    </ProsePage>
   )
 }

@@ -3,6 +3,7 @@ import type { PageMetadata } from "@atlas/metadata"
 import type { AtlasContext } from "@atlas/runtime"
 import { notFound } from "@atlas/runtime"
 import { Link } from "@atlas/ui"
+import { ProsePage } from "../../../components/ProsePage.tsx"
 import { getGuide, type Guide } from "../../../data/guides.ts"
 
 /** RFC-009: entities this route loader loads. */
@@ -34,12 +35,11 @@ export default function GuideSlugPage(ctx: AtlasContext) {
   const guide = ctx.data as Guide
 
   return (
-    <article class="prose-page">
-      <p class="eyebrow">
-        <Link href="/guide">Guides</Link>
-      </p>
-      <h1 class="font-display">{guide.title}</h1>
-      <p class="lede">{guide.summary}</p>
+    <ProsePage
+      eyebrow={<Link href="/guide">Guides</Link>}
+      title={guide.title}
+      lede={guide.summary}
+    >
       {guide.body.map((paragraph) => (
         <p>{paragraph}</p>
       ))}
@@ -48,6 +48,6 @@ export default function GuideSlugPage(ctx: AtlasContext) {
         {" · "}
         <Link href="/viewer">Open viewer</Link>
       </p>
-    </article>
+    </ProsePage>
   )
 }
