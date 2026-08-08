@@ -181,6 +181,7 @@ body {
     width: 120%;
     max-width: none;
     transform: translateY(18%);
+    animation: none;
   }
 }
 
