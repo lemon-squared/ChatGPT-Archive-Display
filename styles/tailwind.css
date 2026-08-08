@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Public Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+:root {
+  --canvas: #f3eee4;
+  --sidebar: #ebe4d6;
+  --surface: #faf7f0;
+  --surface-hover: #e7dfd0;
+  --ink: #1c241f;
+  --ink-muted: #4d5a53;
+  --ink-faint: #7a877f;
+  --line: #d5cdbc;
+  --line-strong: #b9ae97;
+  --accent: #2d7a6e;
+  --accent-strong: #1f5f56;
+  --accent-soft: rgba(45, 122, 110, 0.14);
+  --user-bg: #e8f1ee;
+  --user-border: #c5d9d2;
+  --assistant-bg: #fffdf8;
+  --assistant-border: #ddd4c3;
+  --tool-bg: #f1ebe0;
+  --tool-border: #d2c7b2;
+  --code-bg: #24302b;
+  --code-fg: #e8f0ec;
+  --danger: #8b2e2e;
+  --danger-bg: #f8e8e6;
+  --danger-border: #e2b4ae;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  background: var(--canvas);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bg-atmosphere {
+  background:
+    linear-gradient(160deg, rgba(243, 238, 228, 0.92), rgba(232, 239, 234, 0.88)),
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(45, 122, 110, 0.16), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(196, 140, 74, 0.14), transparent 50%),
+    repeating-linear-gradient(-12deg, rgba(28, 36, 31, 0.025) 0 1px, transparent 1px 14px);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}

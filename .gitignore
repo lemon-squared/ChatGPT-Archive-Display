@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+/vendor
+
+# atlas build output
+/.atlas
+
+# testing
+/coverage
+
+# misc
+.DS_Store
+*.pem
+*.log
+.bun-debug.log*
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo

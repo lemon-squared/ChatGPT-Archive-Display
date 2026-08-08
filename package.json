@@ -1,0 +1,32 @@
+{
+  "name": "chatgpt-archive-display",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "bun run scripts/ensure-atlas.ts",
+    "ensure-atlas": "bun run scripts/ensure-atlas.ts",
+    "atlas": "bun run scripts/atlas.ts",
+    "dev": "bun run atlas -- start --dir . --build --port 3000",
+    "build": "bun run atlas -- build --dir .",
+    "start": "bun run atlas -- start --dir . --port 3000",
+    "test": "bun test lib",
+    "test:watch": "bun test --watch lib"
+  },
+  "dependencies": {
+    "@tailwindcss/node": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.9",
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "packageManager": "bun@1.3.14",
+  "dependencies": {
+    "@tailwindcss/node": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
